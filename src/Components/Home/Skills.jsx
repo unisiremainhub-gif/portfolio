@@ -186,14 +186,14 @@ export default function Skills() {
             >
               {activeCategory === cat && (
                 <motion.div
-                  className="absolute inset-0 bg-stone-900 rounded-full"
+                  className="absolute inset-0 bg-stone-900 rounded-full cursor-pointer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">{cat === 'Full-Stack / Tools' ? 'Tools' : cat}</span>
+              <span className="relative z-10 cursor-pointer">{cat === 'Full-Stack / Tools' ? 'Tools' : cat}</span>
             </button>
           ))}
         </div>

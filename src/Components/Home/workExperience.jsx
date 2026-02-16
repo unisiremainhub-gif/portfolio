@@ -45,24 +45,13 @@ const experiences = [
     icon: FaGraduationCap,
     description: "Chandigarh Group of Colleges, Landran",
     achievements: [
-        "CGPA: 8.2"
+        "CGPA: 8.2",
+        "Active member of the Entrepreneurship & Leadership Cell, championing student-led startups and organizing technical workshops",
+        "Diversified technical skill set by mastering Full Stack Development, Cloud Computing, and Algorithmic Problem Solving beyond the curriculum"
     ],
     tech: ["DSA", "Web Dev", "OS", "DBMS"]
   },
-  {
-    id: 4,
-    title: "Higher Secondary (Non-Medical)",
-    subtitle: "Science Stream",
-    role: "Student",
-    period: "June 2020",
-    type: "Education",
-    icon: FaGraduationCap,
-    description: "G.S.S.S., Raipur Rani",
-    achievements: [
-        "CGPA: 9.1"
-    ],
-     tech: ["Physics", "Chemistry", "Maths"]
-  }
+
 ];
 
 const TimelineCard = ({ exp, index }) => {
@@ -210,7 +199,7 @@ export default function Experience() {
             viewport={{ once: true }}
             className="text-center mt-12"
         >
-            <a href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
+            <a href="https://drive.google.com/file/d/1ADCc3cb5IdX5ueMCKeefApuMCmqfJ1lw/view?usp=drivesdk" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
                 <span>Resume / CV</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" size={14} />
             </a>

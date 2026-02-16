@@ -8,57 +8,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Handle Scroll Appearance
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  });
-
-  // Active Section Spy
-  useEffect(() => {
-    let observer;
-    
-    const observeSections = () => {
-      const sectionElements = navLinks.map(link => document.querySelector(link.href));
-      const allFound = sectionElements.every(el => el !== null);
-      
-      if (allFound) {
-        observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) setActiveSection(entry.target.id);
-            });
-          },
-          { threshold: 0.2, rootMargin: "-20% 0px -35% 0px" }
-        );
-        sectionElements.forEach(section => section && observer.observe(section));
-        return true; // Success
-      }
-      return false; // Metrics not ready
-    };
-
-    // Try immediately
-    if (!observeSections()) {
-      // Retry every 500ms until found
-      const intervalId = setInterval(() => {
-        if (observeSections()) {
-          clearInterval(intervalId);
-        }
-      }, 500);
-      return () => {
-        clearInterval(intervalId);
-        if (observer) observer.disconnect();
-      };
-    }
-
-    return () => {
-      if (observer) observer.disconnect();
-    };
-  }, []);
-
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Experience', href: '#experience' },
@@ -67,6 +16,50 @@ export default function Header() {
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  // Active Section Spy (Scroll Position Based)
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // 1. Handle Header Appearance
+    setScrolled(latest > 50);
+
+    // 2. Handle Active Section
+    const viewportHeight = window.innerHeight;
+    // Trigger point: 40% down the screen. This feels most natural for "what am I looking at?"
+    const triggerPoint = viewportHeight * 0.4; 
+
+    // We check sections in reverse order to catch the bottom-most active ones first if overlapping,
+    // but standard Top->Bottom check is usually safer for "first one satisfying condition".
+    // Alternatively, find the one that effectively "contains" the trigger point.
+    
+    let currentSection = activeSection;
+    let found = false;
+
+    // Check each section to see if the trigger point is inside it
+    for (const link of navLinks) {
+       const sectionId = link.href.substring(1);
+       const element = document.getElementById(sectionId);
+       
+       if (element) {
+          const { top, bottom } = element.getBoundingClientRect();
+          // top is distance from viewport top to element top
+          // bottom is distance from viewport top to element bottom
+          
+          // If the top of the element is above the trigger point
+          // AND the bottom is below the trigger point, it's active.
+          if (top <= triggerPoint && bottom > triggerPoint) {
+             currentSection = sectionId;
+             found = true;
+             break; 
+          }
+       }
+    }
+    
+    if (found && currentSection !== activeSection) {
+        setActiveSection(currentSection);
+    }
+  });
+
+
 
   const logoText = "nitin".split("");
 
@@ -90,7 +83,7 @@ export default function Header() {
             className="relative z-50 group cursor-pointer flex items-center gap-3"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo({ top: 0 });
               setIsMenuOpen(false);
             }}
           >
@@ -131,7 +124,7 @@ export default function Header() {
                       href={link.href}
                       onClick={(e) => {
                          e.preventDefault();
-                         document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                         document.querySelector(link.href)?.scrollIntoView();
                          setActiveSection(link.href.substring(1));
                       }}
                       className={`relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300 ${
@@ -190,7 +183,12 @@ export default function Header() {
                 >
                   <a
                     href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => {
+                         e.preventDefault();
+                         setIsMenuOpen(false);
+                         document.querySelector(link.href)?.scrollIntoView();
+                         setActiveSection(link.href.substring(1));
+                    }}
                     className={`text-4xl font-display font-medium block ${
                       activeSection === link.href.substring(1) 
                         ? 'text-stone-900' 

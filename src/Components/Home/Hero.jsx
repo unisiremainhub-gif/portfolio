@@ -266,7 +266,7 @@ export default function Hero() {
                   href="#projects" 
                   className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-stone-900 px-8 font-medium text-white transition-all duration-300 hover:bg-stone-800 hover:w-40 w-36 neon-border-card"
                 >
-                  <div className="inline-flex whitespace-nowrap opacity-100 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-0">
+                  <div className="inline-flex whitespace-nowrap opacity-100 ">
                     My Work
                   </div>
                   <div className="absolute right-3.5 inline-flex opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">

@@ -20,7 +20,7 @@ export const projects = [
     description: "A comprehensive job searching and tracking application that helps users find relevant job opportunities, track their application status, and manage their professional profile efficiently.",
     techStack: ["MERN Stack", "Redux", "Styled Components"],
     github: "https://github.com/Nitinkeldee/Jobify", 
-    live: "", 
+    live: "https://jobify.live", 
     image: jobifyImg
   },
   {
@@ -29,7 +29,7 @@ export const projects = [
     description: "An advanced AI/ML project focused on predictive analytics and data processing. Leverages machine learning models to provide actionable insights and automation solutions.",
     techStack: ["Python", "Machine Learning", "React", "Flask"],
     github: "https://github.com/Nitinkeldee/Tasyai", 
-    live: "", 
+    live: "https://tasyai.vercel.app/", 
     image: tasyaiImg
   },
   {
