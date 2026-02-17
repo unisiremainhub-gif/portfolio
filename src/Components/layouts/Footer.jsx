@@ -41,7 +41,7 @@ export default function Footer() {
             >
               <h3 className="text-2xl font-bold text-stone-100 mb-2 tracking-tight">Nitin<span className="text-emerald-500">.</span></h3>
               <p className="text-stone-500 leading-relaxed max-w-sm">
-                Software Engineer focused on building scalable, performant, and user-centric digital experiences.
+               Software Engineer and Entrepreneur focused on building scalable, high-performance, and user-centric products with a strong business and startup mindset.
               </p>
             </motion.div>
 
