@@ -235,7 +235,7 @@ export default function Hero() {
               
               <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <AnimatedText text="Software" delay={0.1} />
-               <AnimatedText text="Engineer, Entrepreneur &" delay={0.3} />
+               <AnimatedText text="Engineer &" delay={0.3} />
 
                 <div className="overflow-hidden">
                    <motion.div
@@ -244,7 +244,7 @@ export default function Hero() {
                      transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                      className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
                    >
-                     Innovator.
+                     Entrepreneur.
                    </motion.div>
                 </div>
               </h2>
