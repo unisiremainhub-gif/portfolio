@@ -229,7 +229,7 @@ export default function Hero() {
                 whileHover={{ letterSpacing: "0.2em", transition: { duration: 0.3 } }}
               >
                 <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
-              Software Engineer • Entrepreneur
+              Software Engineer 
 
               </motion.div>
               
