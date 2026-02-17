@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nitinkelde.com/sitemap.xml
+Sitemap: https://nitinkelde.in/sitemap.xml
