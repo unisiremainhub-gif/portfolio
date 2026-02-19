@@ -1,13 +1,21 @@
 import { m as motion, AnimatePresence } from "framer-motion";
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiTerminal } from 'react-icons/fi';
+import { 
+  FiGithub, 
+  FiLinkedin, 
+  FiMail, 
+  FiArrowUp, 
+  FiTerminal 
+} from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const year = new Date().getFullYear();
 
+  // Social Links (Updated)
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/Nitinkeldee', label: 'GitHub' },
+    { icon: FiGithub, href: 'https://github.com/Nitinkeldee', label: 'Personal GitHub' },
+    { icon: FiGithub, href: 'https://github.com/unisiremainhub-gif', label: 'Secondary GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/nitinkelde/', label: 'LinkedIn' },
     { icon: FiMail, href: 'mailto:nitinparjapat02@gmail.com', label: 'Email' },
   ];
@@ -39,13 +47,15 @@ export default function Footer() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-stone-100 mb-2 tracking-tight">Nitin<span className="text-emerald-500">.</span></h3>
+              <h3 className="text-2xl font-bold text-stone-100 mb-2 tracking-tight">
+                Nitin<span className="text-emerald-500">.</span>
+              </h3>
               <p className="text-stone-500 leading-relaxed max-w-sm">
                Software Engineer and Entrepreneur focused on building scalable, high-performance, and user-centric products with a strong business and startup mindset.
               </p>
             </motion.div>
 
-            {/* Developer Status Badge */}
+            {/* Status Badge */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -58,13 +68,17 @@ export default function Footer() {
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                </span>
                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider leading-none mb-0.5">Current Status</span>
-                  <span className="text-xs font-mono font-bold text-emerald-400">Open to Work</span>
+                  <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider leading-none mb-0.5">
+                    Current Status
+                  </span>
+                  <span className="text-xs font-mono font-bold text-emerald-400">
+                    Open to Work
+                  </span>
                </div>
             </motion.div>
           </div>
 
-          {/* COLUMN 2: LINKS */}
+          {/* COLUMN 2: NAVIGATION */}
           <div className="md:col-span-3 md:pl-8">
              <h4 className="text-stone-100 font-bold mb-6">Navigation</h4>
              <ul className="space-y-4">
@@ -85,6 +99,7 @@ export default function Footer() {
           {/* COLUMN 3: CONNECT */}
           <div className="md:col-span-4">
              <h4 className="text-stone-100 font-bold mb-6">Connect</h4>
+             
              <div className="flex gap-4 mb-8">
                {socialLinks.map((social) => {
                  const Icon = social.icon;
@@ -94,8 +109,9 @@ export default function Footer() {
                      href={social.href}
                      target="_blank"
                      rel="noreferrer"
-                     className="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center text-stone-400 hover:bg-emerald-600 hover:text-white transition-all duration-300 border border-stone-800 hover:border-emerald-600"
+                     title={social.label}
                      aria-label={social.label}
+                     className="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center text-stone-400 hover:bg-emerald-600 hover:text-white transition-all duration-300 border border-stone-800 hover:border-emerald-600"
                    >
                      <Icon size={18} />
                    </a>
@@ -103,6 +119,7 @@ export default function Footer() {
                })}
              </div>
 
+             {/* Contact Card */}
              <div className="p-4 rounded-xl bg-stone-900 border border-stone-800">
                 <div className="flex items-center gap-3 mb-2 text-stone-200 font-mono text-sm">
                    <FiTerminal className="text-emerald-500" />
@@ -111,7 +128,10 @@ export default function Footer() {
                 <p className="text-xs text-stone-500 mb-3">
                    Let's discuss how we can help your business grow.
                 </p>
-                <a href="mailto:nitinparjapat02@gmail.com" className="text-xs font-bold text-emerald-500 hover:text-emerald-400 flex items-center gap-1">
+                <a 
+                  href="mailto:nitinparjapat02@gmail.com" 
+                  className="text-xs font-bold text-emerald-500 hover:text-emerald-400 flex items-center gap-1"
+                >
                    run_init.sh <span className="animate-pulse">_</span>
                 </a>
              </div>
@@ -119,17 +139,18 @@ export default function Footer() {
 
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t border-stone-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-stone-600">
-           <p className="flex items-center gap-2">
+           <p>
               <span className="text-emerald-600">const</span> YEAR = {year};
            </p>
            <p>
               // Designed & Built by <span className="text-stone-400">Nitin Kelde</span>
            </p>
         </div>
-
       </div>
 
+      {/* Scroll To Top */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
