@@ -8,7 +8,7 @@ const experiences = [
     title: "Tata Consultancy Services (TCS)",
     subtitle: "Enterprise Software Engineering",
     role: "Software Engineer",
-    period: "Feb 2025 – June 2025",
+    period: "June 2025 - March 2026",
     type: "Corporate",
     icon: FaBuilding,
     description: "Developed and enhanced React.js-based dashboard interfaces used by 10k+ internal users, focusing on clean layouts and maintainable frontend architecture.",
@@ -24,7 +24,7 @@ const experiences = [
     title: "Extech Technologies",
     subtitle: "Full Stack Development & Automation",
     role: "Full Stack Developer (Internship)",
-    period: "Jan 2024 – June 2025",
+    period: "Jan 2025 – June 2025",
     type: "Internship",
     icon: FaLaptopCode,
     description: "Worked on scalable MERN stack and React.js applications supporting 5,000+ active users, focusing on performance, responsiveness, and modular UI design.",
@@ -199,7 +199,7 @@ export default function Experience() {
             viewport={{ once: true }}
             className="text-center mt-12"
         >
-            <a href="https://drive.google.com/file/d/140pHTi9AAR96of-kq0a9Yx5ogDMFouxX/view?usp=sharing" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
+            <a href="https://drive.google.com/file/d/1kxV9IB_NgYK-h_g05HhRVkHEW1sOtntU/view?usp=sharing" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
                 <span>Resume / CV</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" size={14} />
             </a>
