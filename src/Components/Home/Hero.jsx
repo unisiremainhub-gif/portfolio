@@ -218,7 +218,7 @@ export default function Hero() {
                   borderWidth: '0' 
                 }}
               >
-                Nitin Kelde - Software Engineer, Entrepreneur & Innovator
+                Nitin Kelde - Software Engineer & Innovator
               </h1>
 
               <motion.div 
@@ -244,7 +244,7 @@ export default function Hero() {
                      transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                      className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
                    >
-                     Entrepreneur.
+                     Innovator.
                    </motion.div>
                 </div>
               </h2>
@@ -254,7 +254,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
                 className="text-xl text-stone-600 max-w-2xl leading-relaxed mb-10"
-              >I'm Nitin Kelde, a Software Engineer and Entrepreneur passionate about building scalable products and real-world solutions. I combine strong technical expertise with a business mindset to create impactful digital platforms.
+              >I'm Nitin Kelde, a Software Engineer and Innovator passionate about building scalable products and real-world solutions. I combine strong technical expertise with a business mindset to create impactful digital platforms.
  </motion.p>
               
               <motion.div 
