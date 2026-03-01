@@ -153,7 +153,7 @@ export default function Contact() {
                       <span className="font-medium text-emerald-400">Open to new opportunities</span>
                    </div>
                    <p className="mt-4 text-stone-400 text-sm leading-relaxed">
-                     I'm currently available for freelance projects and full-time roles starting immediately.
+                    I'm currently available for full-time roles, startup collaborations, and building startups. Immediate joiner.
                    </p>
                 </div>
                 {/* Abstract decoration */}

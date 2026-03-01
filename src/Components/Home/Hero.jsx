@@ -218,7 +218,7 @@ export default function Hero() {
                   borderWidth: '0' 
                 }}
               >
-                Nitin Kelde - Software Engineer, Entrepreneur & Innovator
+                Nitin Kelde - Software Engineer & Innovator
               </h1>
 
               <motion.div 
@@ -244,7 +244,7 @@ export default function Hero() {
                      transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                      className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
                    >
-                     Entrepreneur.
+                     Innovator.
                    </motion.div>
                 </div>
               </h2>
@@ -254,7 +254,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
                 className="text-xl text-stone-600 max-w-2xl leading-relaxed mb-10"
-              >I'm Nitin Kelde, a Software Engineer and Entrepreneur passionate about building scalable products and real-world solutions. I combine strong technical expertise with a business mindset to create impactful digital platforms.
+              >I'm Nitin Kelde, a Software Engineer and Innovator passionate about building scalable products and real-world solutions. I combine strong technical expertise with a business mindset to create impactful digital platforms.
  </motion.p>
               
               <motion.div 
@@ -279,7 +279,7 @@ export default function Hero() {
                 </a>
                 
                 <a 
-                  href="https://drive.google.com/file/d/1ADCc3cb5IdX5ueMCKeefApuMCmqfJ1lw/view?usp=drivesdk" 
+                  href="https://drive.google.com/file/d/1v6yksIVGL6pyqNjVrY0YTlmQkXKuzf3A/view?usp=sharing" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-stone-200 bg-white/50 backdrop-blur-sm px-6 font-medium text-stone-700 transition-all duration-300 hover:bg-stone-100 hover:text-stone-900 hover:border-stone-300"

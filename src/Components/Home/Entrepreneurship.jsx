@@ -25,7 +25,7 @@ const ventures = [
     id: 2,
     title: "Tasyai",
     subtitle: "Job Marketplace & Collaboration Hub",
-    role: "Founder",
+    role: "Co-Founder & Lead Developer",
     period: "2026 - Present",
     type: "Platform",
     icon: FaRocket,
