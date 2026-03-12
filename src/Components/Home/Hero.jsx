@@ -279,7 +279,7 @@ export default function Hero() {
                 </a>
                 
                 <a 
-                  href="https://drive.google.com/file/d/16NGk2GlifoLwlqk8KXqvskOdNpqvJDvo/view?usp=sharing" 
+                  href="https://drive.google.com/file/d/1Mx-SyZ1ZYlYoEC9XdK4nH0YikFrSvIFT/view?usp=sharing" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-stone-200 bg-white/50 backdrop-blur-sm px-6 font-medium text-stone-700 transition-all duration-300 hover:bg-stone-100 hover:text-stone-900 hover:border-stone-300"
