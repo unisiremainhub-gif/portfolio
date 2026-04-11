@@ -199,7 +199,7 @@ export default function Experience() {
             viewport={{ once: true }}
             className="text-center mt-12"
         >
-            <a href="https://drive.google.com/file/d/1Mx-SyZ1ZYlYoEC9XdK4nH0YikFrSvIFT/view?usp=sharing" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
+            <a href="https://drive.google.com/file/d/1PJvF2rhu39w8cEvSFpi0iX_K2t1CTWVN/view?usp=sharing" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
                 <span>Resume / CV</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" size={14} />
             </a>
