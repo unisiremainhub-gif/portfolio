@@ -309,7 +309,7 @@ export default function Hero() {
                 />
 
                 <AnimatedText
-                  text="Enthusiat &"
+                  text="Enthusiast &"
                   delay={0.3}
                 />
 
@@ -324,7 +324,7 @@ export default function Hero() {
                     }}
                     className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
                   >
-                    Innovator.
+                    innovator.
                   </motion.div>
                 </div>
 
