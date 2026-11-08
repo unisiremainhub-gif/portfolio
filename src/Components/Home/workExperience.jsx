@@ -1,3 +1,4 @@
+
 import { m as motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { FaBuilding, FaCheck, FaArrowRight, FaLaptopCode, FaTrophy, FaGraduationCap } from 'react-icons/fa';
@@ -6,50 +7,50 @@ const experiences = [
   {
     id: 1,
     title: "Tata Consultancy Services (TCS)",
-    subtitle: "Enterprise Software Engineering",
+    subtitle: "Data & Application Engineering",
     role: "Software Engineer",
     period: "June 2025 - March 2026",
     type: "Corporate",
     icon: FaBuilding,
-    description: "Developed and enhanced React.js-based dashboard interfaces used by 10k+ internal users, focusing on clean layouts and maintainable frontend architecture.",
+    description: "Worked on data-driven enterprise applications and dashboard interfaces used by 10k+ internal users, combining SQL, Python, and database management to support efficient data operations and business workflows.",
     achievements: [
-      "Built reusable UI components & implemented dynamic data rendering, improving interaction efficiency by 30%",
-      "Designed scalable database schemas using Python, Django ORM, and SQL for production data",
-      "Integrated REST APIs to optimize data flow, reducing page load times by 25% in an Agile environment"
+      "Developed interactive dashboard interfaces and reusable components, improving user interaction efficiency by 30%",
+      "Designed and managed database schemas using Python, Django ORM, and SQL to support structured production data",
+      "Integrated REST APIs and optimized data flows, reducing page load times by 25% in an Agile environment"
     ],
-    tech: ["React.js", "Python", "Django", "SQL", "Agile"]
+    tech: ["SQL", "Python", "Django", "React.js", "Agile"]
   },
   {
     id: 2,
     title: "Extech Technologies",
-    subtitle: "Full Stack Development & Automation",
+    subtitle: "Data Management & Application Development",
     role: "Full Stack Developer (Internship)",
     period: "Jan 2025 – June 2025",
     type: "Internship",
     icon: FaLaptopCode,
-    description: "Worked on scalable MERN stack and React.js applications supporting 5,000+ active users, focusing on performance, responsiveness, and modular UI design.",
+    description: "Worked on data-driven web applications supporting 5,000+ active users, focusing on database operations, dashboard development, workflow automation, and efficient data communication.",
     achievements: [
-      "Built dashboard interfaces & optimized state management, reducing rendering overhead",
-      "Developed custom Chrome Extensions to automate repetitive workflows for internal teams",
-      "Improved real-time data flow via optimized REST API communication"
+      "Developed dashboard interfaces to present application data through structured and user-friendly visualizations",
+      "Built custom Chrome Extensions to automate repetitive workflows and improve operational efficiency",
+      "Worked with MongoDB and REST APIs to manage application data and streamline data communication"
     ],
-    tech: ["React", "Node.js", "Express.js", "MongoDB", "Redux", "Chrome Ext"]
+    tech: ["SQL", "MongoDB", "Python", "JavaScript", "REST APIs", "React"]
   },
   {
     id: 3,
     title: "Bachelor of Technology",
     subtitle: "Computer Science Engineering",
-    role: "Undergraduate Student",
+    role: "Graduate",
     period: "Dec 2024",
     type: "Education",
     icon: FaGraduationCap,
     description: "Chandigarh Group of Colleges, Landran",
     achievements: [
-        "CGPA: 8.2",
-        "Active member of the Entrepreneurship & Leadership Cell, championing student-led startups and organizing technical workshops",
-        "Diversified technical skill set by mastering Full Stack Development, Cloud Computing, and Algorithmic Problem Solving beyond the curriculum"
+        "Graduated with an overall CGPA of 8.2",
+        "Active member of the Entrepreneurship & Leadership Cell, participating in student-led initiatives and organizing technical workshops",
+        "Developed a strong foundation in database management, analytical problem-solving, programming, and computer science fundamentals"
     ],
-    tech: ["DSA", "Web Dev", "OS", "DBMS"]
+    tech: ["SQL", "Python", "DBMS", "Statistics", "DSA"]
   },
 
 ];
@@ -167,7 +168,7 @@ export default function Experience() {
              Professional <span className="text-emerald-600">Journey</span>
            </motion.h2>
            <p className="text-lg text-stone-600 leading-relaxed max-w-xl mx-auto">
-             Tracing the path from foundational learning to complex full-stack engineering and hackathon victories.
+             From enterprise technology experience to analytical problem-solving, building a strong foundation in data, business intelligence, and innovation.
            </p>
         </div>
 
@@ -200,7 +201,7 @@ export default function Experience() {
             className="text-center mt-12"
         >
             <a href="https://drive.google.com/file/d/1PJvF2rhu39w8cEvSFpi0iX_K2t1CTWVN/view?usp=sharing" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
-                <span>Resume / CV</span>
+                <span>Download Data Analyst Resume</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" size={14} />
             </a>
         </motion.div>
