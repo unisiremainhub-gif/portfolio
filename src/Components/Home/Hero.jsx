@@ -218,7 +218,7 @@ export default function Hero() {
                   borderWidth: '0' 
                 }}
               >
-              Analytics Enthusiast & Problem Solver.
+              Analytics Enthusiast
               </h1>
 
               <motion.div 
@@ -244,7 +244,7 @@ export default function Hero() {
                      transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                      className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
                    >
-                     Innovator.
+                     & Problem Solver.
                    </motion.div>
                 </div>
               </h2>
