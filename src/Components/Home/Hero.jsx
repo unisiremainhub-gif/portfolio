@@ -223,7 +223,7 @@ const GravityImage = () => {
               transform: "translateZ(30px)"
             }}
           >
-            Developer
+            Analyst
           </motion.div>
 
         </div>
