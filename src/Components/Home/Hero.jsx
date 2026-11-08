@@ -218,7 +218,7 @@ export default function Hero() {
                   borderWidth: '0' 
                 }}
               >
-                Nitin Kelde - Software Engineer & Innovator
+              Analytics Enthusiast & Problem Solver.
               </h1>
 
               <motion.div 
@@ -229,7 +229,7 @@ export default function Hero() {
                 whileHover={{ letterSpacing: "0.2em", transition: { duration: 0.3 } }}
               >
                 <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
-              Software Engineer 
+              Analyst & Innovator
 
               </motion.div>
               
@@ -254,7 +254,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
                 className="text-xl text-stone-600 max-w-2xl leading-relaxed mb-10"
-              >I'm Nitin Kelde, a Software Engineer and Innovator passionate about building scalable products and real-world solutions. I combine strong technical expertise with a business mindset to create impactful digital platforms.
+              >I'm Nitin Kelde, a data-driven professional with experience in SQL, Python, Excel, and Power BI. I transform raw data into meaningful insights, build interactive dashboards, and solve business problems through data-driven decision-making.
  </motion.p>
               
               <motion.div 
