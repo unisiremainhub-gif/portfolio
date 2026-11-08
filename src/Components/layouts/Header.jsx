@@ -1,9 +1,17 @@
-import { m as motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useState, useEffect } from 'react';
+
+import {
+  m as motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent
+} from 'framer-motion';
+
+import { useState } from 'react';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 
 export default function Header() {
   const { scrollY } = useScroll();
+
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -14,125 +22,157 @@ export default function Header() {
     { name: 'Skills', href: '#skills' },
     { name: 'Entrepreneurship', href: '#entrepreneurship' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '#contact' }
   ];
 
-  // Active Section Spy (Scroll Position Based)
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    // 1. Handle Header Appearance
+  // Scroll and Active Section Tracking
+  useMotionValueEvent(scrollY, 'change', (latest) => {
     setScrolled(latest > 50);
 
-    // 2. Handle Active Section
-    const viewportHeight = window.innerHeight;
-    // Trigger point: 40% down the screen. This feels most natural for "what am I looking at?"
-    const triggerPoint = viewportHeight * 0.4; 
+    const triggerPoint = window.innerHeight * 0.4;
 
-    // We check sections in reverse order to catch the bottom-most active ones first if overlapping,
-    // but standard Top->Bottom check is usually safer for "first one satisfying condition".
-    // Alternatively, find the one that effectively "contains" the trigger point.
-    
-    let currentSection = activeSection;
-    let found = false;
+    let currentSection = 'home';
 
-    // Check each section to see if the trigger point is inside it
     for (const link of navLinks) {
-       const sectionId = link.href.substring(1);
-       const element = document.getElementById(sectionId);
-       
-       if (element) {
-          const { top, bottom } = element.getBoundingClientRect();
-          // top is distance from viewport top to element top
-          // bottom is distance from viewport top to element bottom
-          
-          // If the top of the element is above the trigger point
-          // AND the bottom is below the trigger point, it's active.
-          if (top <= triggerPoint && bottom > triggerPoint) {
-             currentSection = sectionId;
-             found = true;
-             break; 
-          }
-       }
+      const sectionId = link.href.substring(1);
+      const element = document.getElementById(sectionId);
+
+      if (element) {
+        const { top, bottom } = element.getBoundingClientRect();
+
+        if (top <= triggerPoint && bottom > triggerPoint) {
+          currentSection = sectionId;
+          break;
+        }
+      }
     }
-    
-    if (found && currentSection !== activeSection) {
-        setActiveSection(currentSection);
-    }
+
+    setActiveSection(currentSection);
   });
 
+  const logoText = 'nitin'.split('');
 
+  // Smooth Navigation
+  const handleNavigation = (e, href) => {
+    e.preventDefault();
 
-  const logoText = "nitin".split("");
+    const section = document.querySelector(href);
+
+    if (section) {
+      const headerOffset = 90;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      setActiveSection(href.substring(1));
+    }
+
+    setIsMenuOpen(false);
+  };
+
+  // Back to Home
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    setActiveSection('home');
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'h-20 bg-white/80 backdrop-blur-md shadow-sm border-b border-stone-100' 
+          scrolled
+            ? 'h-20 bg-white/80 backdrop-blur-md shadow-sm border-b border-stone-100'
             : 'h-24 bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20
+        }}
       >
         <div className="container mx-auto px-6 h-full flex justify-between items-center">
-          
+
           {/* Logo */}
-          <a 
+          <a
             href="#home"
+            aria-label="Nitin Kelde - Data Analyst, Home"
             className="relative z-50 group cursor-pointer flex items-center gap-3"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0 });
-              setIsMenuOpen(false);
-            }}
+            onClick={handleLogoClick}
           >
             <motion.div className="text-3xl font-bold font-display tracking-tight flex gap-0.5 overflow-hidden">
-               {logoText.map((letter, i) => (
+              {logoText.map((letter, i) => (
                 <motion.span
                   key={i}
                   className="text-stone-900 inline-block"
                   initial={{ y: 100 }}
                   animate={{ y: 0 }}
-                  transition={{ delay: i * 0.05, type: "spring" }}
-                  whileHover={{ 
+                  transition={{
+                    delay: i * 0.05,
+                    type: 'spring'
+                  }}
+                  whileHover={{
                     y: -5,
-                    color: "#059669", // emerald-600
+                    color: '#059669',
                     transition: { duration: 0.2 }
-                    }}
+                  }}
                 >
                   {letter}
                 </motion.span>
-               ))}
-               <motion.span 
-                 className="text-emerald-500"
-                 initial={{ scale: 0 }}
-                 animate={{ scale: 1 }}
-                 transition={{ delay: 0.5, type: 'spring' }}
-               >.</motion.span>
+              ))}
+
+              <motion.span
+                className="text-emerald-500"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 0.5,
+                  type: 'spring'
+                }}
+              >
+                .
+              </motion.span>
             </motion.div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          <nav
+            className="hidden md:block"
+            aria-label="Main navigation"
+          >
             <ul className="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-full border border-white/20 shadow-sm hover:shadow-md transition-shadow duration-300">
+
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const isActive =
+                  activeSection === link.href.substring(1);
+
                 return (
                   <li key={link.name} className="relative">
                     <a
                       href={link.href}
-                      onClick={(e) => {
-                         e.preventDefault();
-                         document.querySelector(link.href)?.scrollIntoView();
-                         setActiveSection(link.href.substring(1));
-                      }}
+                      onClick={(e) => handleNavigation(e, link.href)}
+                      aria-current={isActive ? 'page' : undefined}
                       className={`relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300 ${
-                        isActive ? 'text-white' : 'text-stone-600 hover:text-stone-900'
+                        isActive
+                          ? 'text-white'
+                          : 'text-stone-600 hover:text-stone-900'
                       }`}
                     >
                       {link.name}
-                      
+
                       {/* Active Pill Background */}
                       {isActive && (
                         <motion.div
@@ -140,25 +180,37 @@ export default function Header() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          transition={{
+                            type: 'spring',
+                            stiffness: 300,
+                            damping: 20
+                          }}
                         />
                       )}
                     </a>
                   </li>
                 );
               })}
+
             </ul>
           </nav>
 
           {/* Mobile Menu Button */}
           <motion.button
+            type="button"
             className="md:hidden relative z-50 p-2 text-stone-900 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
-             {isMenuOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+            {isMenuOpen
+              ? <HiX size={28} />
+              : <HiMenuAlt3 size={28} />
+            }
           </motion.button>
+
         </div>
       </motion.header>
 
@@ -166,49 +218,55 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden flex flex-col justify-center items-center"
           >
-             <ul className="space-y-6 text-center">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: 0.1 + i * 0.1 }}
-                >
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                         e.preventDefault();
-                         setIsMenuOpen(false);
-                         document.querySelector(link.href)?.scrollIntoView();
-                         setActiveSection(link.href.substring(1));
-                    }}
-                    className={`text-4xl font-display font-medium block ${
-                      activeSection === link.href.substring(1) 
-                        ? 'text-stone-900' 
-                        : 'text-stone-400 hover:text-stone-900 transition-colors'
-                    }`}
-                  >
-                     {link.name}
-                  </a>
-                </motion.li>
-              ))}
-             </ul>
+            <nav aria-label="Mobile navigation">
+              <ul className="space-y-6 text-center">
 
-             <motion.div 
-               className="absolute bottom-12 text-stone-400 text-sm font-mono"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 0.6 }}
-             >
-                
-             </motion.div>
+                {navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ delay: 0.1 + i * 0.1 }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavigation(e, link.href)}
+                      aria-current={
+                        activeSection === link.href.substring(1)
+                          ? 'page'
+                          : undefined
+                      }
+                      className={`text-4xl font-display font-medium block ${
+                        activeSection === link.href.substring(1)
+                          ? 'text-stone-900'
+                          : 'text-stone-400 hover:text-stone-900 transition-colors'
+                      }`}
+                    >
+                      {link.name}
+                    </a>
+                  </motion.li>
+                ))}
+
+              </ul>
+            </nav>
+
+            <motion.div
+              className="absolute bottom-12 text-stone-400 text-sm font-mono"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              Nitin Kelde • Data Analyst
+            </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
