@@ -4,22 +4,25 @@ import { useRef } from 'react';
 import { FaBuilding, FaCheck, FaArrowRight, FaLaptopCode, FaTrophy, FaGraduationCap } from 'react-icons/fa';
 
 const experiences = [
-  {
-    id: 1,
-    title: "Tata Consultancy Services (TCS)",
-    subtitle: "Data & Application Engineering",
-    role: "Software Engineer",
-    period: "June 2025 - March 2026",
-    type: "Corporate",
-    icon: FaBuilding,
-    description: "Worked on data-driven enterprise applications and dashboard interfaces used by 10k+ internal users, combining SQL, Python, and database management to support efficient data operations and business workflows.",
-    achievements: [
-      "Developed interactive dashboard interfaces and reusable components, improving user interaction efficiency by 30%",
-      "Designed and managed database schemas using Python, Django ORM, and SQL to support structured production data",
-      "Integrated REST APIs and optimized data flows, reducing page load times by 25% in an Agile environment"
-    ],
-    tech: ["SQL", "Python", "Django", "React.js", "Agile"]
-  },
+ 
+{
+  id: 1,
+  title: "Tata Consultancy Services (TCS)",
+  subtitle: "Client: DNB Bank Norway | Data Analysis & Reporting",
+  role: "Software Engineer",
+  period: "June 2025 – [Official Last Working Date]",
+  type: "Corporate",
+  icon: FaBuilding,
+  description: "Worked on data extraction, processing, and analysis to support application workflows and operational reporting for DNB Bank Norway. Utilized SQL and Python to manage structured datasets, develop interactive dashboards, and improve data accuracy across enterprise systems.",
+  achievements: [
+    "Utilized SQL and Python for data extraction, processing, and manipulation to support application workflows and operational reporting",
+    "Developed interactive dashboards and data visualizations to monitor key information, track business metrics, and support data-driven decision-making",
+    "Performed SQL queries, data validation, and database operations to retrieve, organize, and maintain structured datasets across application systems",
+    "Collaborated with cross-functional teams to investigate data discrepancies, troubleshoot operational issues, and improve data accuracy and workflow efficiency"
+  ],
+  tech: ["SQL", "Python", "PostgreSQL", "Data Analysis", "Reporting", "Dashboard Development"]
+},
+
   {
     id: 2,
     title: "Extech Technologies",
