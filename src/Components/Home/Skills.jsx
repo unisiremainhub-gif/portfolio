@@ -1,3 +1,4 @@
+
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { 
@@ -5,21 +6,71 @@ import {
   FaGithub, FaDatabase, FaCode, FaServer, FaPython, FaSass, 
   FaBrain, FaObjectGroup, FaProjectDiagram, FaJira, FaTrello, 
   FaGoogle, FaUsers, FaComments, FaLightbulb, FaHandshake, FaSyncAlt,
-  FaChevronDown
+  FaChevronDown, FaChartBar, FaChartLine, FaFileExcel,
+  FaCalculator, FaTable, FaFilter, FaSearch, FaGraduationCap
 } from 'react-icons/fa';
+
 import { 
   SiTailwindcss, SiExpress, SiMongodb, SiTypescript, 
   SiCplusplus, SiRedux, SiDjango, SiSqlite, SiSupabase, 
-  SiNotion, SiN8N, SiAmazondynamodb
+  SiNotion, SiN8N, SiAmazondynamodb, SiPostgresql,
+  SiPandas, SiNumpy, SiJupyter, SiPowerbi
 } from 'react-icons/si';
+
 import { skillCategories } from '../../data/skills'; 
 
 // --- Icon Mapping ---
 const skillIconMap = {
+
+  // SQL & Databases
+  'SQL': FaDatabase,
+  'PostgreSQL': SiPostgresql,
+  'MySQL': FaDatabase,
+  'Joins': FaProjectDiagram,
+  'CTEs': FaCode,
+  'Subqueries': FaCode,
+  'Window Functions': FaChartLine,
+  'Aggregations': FaCalculator,
+  'MongoDB': SiMongodb,
+  'SQLite': SiSqlite,
+  'Supabase': SiSupabase,
+
+  // Excel & Spreadsheet Analysis
+  'Advanced Excel': FaFileExcel,
+  'Excel': FaFileExcel,
+  'Pivot Tables': FaTable,
+  'VLOOKUP': FaSearch,
+  'XLOOKUP': FaSearch,
+  'Data Cleaning': FaFilter,
+  'Excel Charts': FaChartBar,
+
+  // Python & Data Analysis
+  'Python': FaPython,
+  'Pandas': SiPandas,
+  'NumPy': SiNumpy,
+  'Data Manipulation': FaTable,
+  'Exploratory Data Analysis': FaChartLine,
+  'Jupyter Notebook': SiJupyter,
+
+  // Power BI & Visualization
+  'Power BI': SiPowerbi,
+  'DAX': FaCalculator,
+  'Power Query': FaFilter,
+  'Dashboard Development': FaChartBar,
+  'KPI Reporting': FaChartLine,
+  'Data Visualization': FaChartBar,
+
+  // Data Analytics
+  'Data Analysis': FaChartLine,
+  'Data Interpretation': FaBrain,
+  'Trend Analysis': FaChartLine,
+  'Reporting': FaTable,
+  'Statistical Analysis': FaCalculator,
+  'Business Insights': FaLightbulb,
+
   // Languages
   'JavaScript': FaJs,
   'TypeScript': SiTypescript,
-  'Python': FaPython,
   'C++': SiCplusplus,
 
   // Frontend
@@ -37,12 +88,6 @@ const skillIconMap = {
   'REST APIs': FaServer,
   'REST Framework': FaServer,
 
-  // Databases
-  'MongoDB': SiMongodb,
-  'SQL': FaDatabase,
-  'SQLite': SiSqlite,
-  'Supabase': SiSupabase,
-
   // CS Fundamentals
   'DSA': FaBrain,
   'OOPs': FaObjectGroup,
@@ -58,13 +103,18 @@ const skillIconMap = {
   'Notion': SiNotion,
   'Google Workspace': FaGoogle,
   'n8n': SiN8N,
+  'Amazon DynamoDB': SiAmazondynamodb,
 
-  // Soft Skills
+  // Business & Soft Skills
   'Leadership': FaUsers,
   'Communication': FaComments,
   'Problem Solving': FaLightbulb,
   'Teamwork': FaHandshake,
-  'Adaptability': FaSyncAlt
+  'Adaptability': FaSyncAlt,
+  'Event Management': FaUsers,
+  'Analytical Thinking': FaBrain,
+  'Team Coordination': FaHandshake,
+  'Business Understanding': FaLightbulb
 };
 
 const SkillCard = ({ skill, index }) => {
@@ -125,18 +175,16 @@ export default function Skills() {
     setFilteredSkills(skillsList);
 
     // Reset visible count based on screen size when category changes
-    // We want to force re-evaluation of the limit whenever category changes
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setVisibleCount(10);
       } else {
-        setVisibleCount(skillsList.length); // Show all on desktop by default
+        setVisibleCount(skillsList.length);
       }
     };
 
-    handleResize(); // Initial check
+    handleResize();
     
-    // Optional: Update on resize if dynamic switching is needed
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [activeCategory]);
@@ -160,7 +208,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-stone-900 mb-4"
            >
-             Technical <span className="text-emerald-600">Arsenal</span>
+             Data Analytics <span className="text-emerald-600">& Technical Skills</span>
            </motion.h2>
            <motion.p 
             initial={{ opacity: 0 }}
@@ -169,8 +217,7 @@ export default function Skills() {
             transition={{ delay: 0.2 }}
             className="text-stone-600"
            >
-             Explore the technologies I use to craft exceptional digital experiences. 
-             Filter by category to see specific skill sets.
+             Explore my analytical and technical skill set, from SQL-based data analysis and Python programming to Excel reporting, Power BI dashboards, and business intelligence.
            </motion.p>
         </div>
 
