@@ -218,7 +218,7 @@ export default function Hero() {
                   borderWidth: '0' 
                 }}
               >
-              Analytics Enthusiast
+               Enthusiast
               </h1>
 
               <motion.div 
@@ -234,8 +234,8 @@ export default function Hero() {
               </motion.div>
               
               <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
-                <AnimatedText text="Software" delay={0.1} />
-               <AnimatedText text="Engineer &" delay={0.3} />
+                <AnimatedText text="Analytics" delay={0.1} />
+               <AnimatedText text="Enthusiast &" delay={0.3} />
 
                 <div className="overflow-hidden">
                    <motion.div
