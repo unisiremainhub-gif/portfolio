@@ -7,38 +7,56 @@ const ventures = [
     id: 1,
     title: "Unisire",
     subtitle: "Student Learning & Career Platform",
-    role: "Co-Founder & Lead Developer",
+    role: "Co-Founder & Product Lead",
     period: "2025 - Present",
     type: "EdTech Startup",
     icon: FaLightbulb,
     link: "https://www.unisire.com/",
-    description: "India’s first and only student-focused learning and career assistance platform combining structured roadmaps, resume references, and automation tools in a single system.",
+    description: "Co-founded a student-focused learning and career platform designed to bring structured learning roadmaps, career resources, resume guidance, and automation tools into one ecosystem. Focused on building a user-centric product and using data-driven insights to improve the student experience.",
     achievements: [
-      "Co-founded and led end-to-end product development, owning UI/UX, database design, and system architecture",
-      "Designed a responsive React.js frontend with reusable components for specific user flows",
-      "Engineered secure backend services using Django & SQL with scalable REST APIs",
-      "Currently integrating complex backend logic into the live production environment"
+      "Co-founded and led end-to-end product development, taking ownership of product strategy, UI/UX, database design, and platform development",
+      "Built a platform serving 1,000+ active users, focusing on user experience, engagement, and accessibility",
+      "Worked with structured application data and databases to support user activity, learning roadmaps, and progress tracking",
+      "Designed dashboards and user flows to organize information and make learning progress easier to monitor",
+      "Contributed to product decisions by understanding user requirements, identifying improvement areas, and translating feedback into features"
     ],
-    tech: ["React.js", "Tailwind CSS", "Python", "Django", "SQL", "REST APIs"]
+    tech: [
+      "SQL",
+      "Python",
+      "Data Analysis",
+      "React.js",
+      "Django",
+      "Database Management",
+      "Product Strategy"
+    ]
   },
   {
     id: 2,
     title: "Tasyai",
     subtitle: "Job Marketplace & Collaboration Hub",
-    role: "Co-Founder & Lead Developer",
+    role: "Co-Founder & Product Lead",
     period: "2026 - Present",
     type: "Platform",
     icon: FaRocket,
     link: "https://tasyai.vercel.app/",
-    description: "A comprehensive platform dedicated to connecting talent with opportunities, fostering collaboration, and managing equity distribution for startups and teams.",
+    description: "Building a platform that connects talent with opportunities while supporting collaboration, project management, and equity distribution for startups and teams. Focused on product planning, structured information, and creating a better decision-making experience.",
     achievements: [
-      "Developing a unified marketplace for job seekers and employers",
-      "Implementing features for team collaboration and project management",
-      "Designing equity management tools for startup co-founders"
+      "Co-founding a unified marketplace connecting job seekers, employers, and emerging teams",
+      "Planning structured workflows for job discovery, opportunity management, and collaboration",
+      "Exploring data-driven features to improve opportunity discovery and platform usability",
+      "Designing product experiences around organized information, transparency, and informed decisions"
     ],
-    tech: ["React.js", "Node.js", "MongoDB", "Express.js"]
+    tech: [
+      "Data Analysis",
+      "SQL",
+      "Product Strategy",
+      "Business Analysis",
+      "React.js",
+      "MongoDB"
+    ]
   }
 ];
+
 
 const VentureCard = ({ exp, index }) => {
   const isOdd = index % 2 !== 0;
