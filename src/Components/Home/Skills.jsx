@@ -158,7 +158,9 @@ const SkillCard = ({ skill }) => {
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredSkills, setFilteredSkills] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(10);
+  const [visibleCount, setVisibleCount] = useState(8);
+
+  const INITIAL_SKILLS = 8;
 
   // Flatten all skills for "All" view
   const allSkills = skillCategories.reduce((acc, cat) => {
@@ -176,6 +178,7 @@ export default function Skills() {
     ...skillCategories.map(category => category.category)
   ];
 
+  // Filter skills when category changes
   useEffect(() => {
     let skillsList = [];
 
@@ -196,32 +199,22 @@ export default function Skills() {
 
     setFilteredSkills(skillsList);
 
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setVisibleCount(10);
-      } else {
-        setVisibleCount(skillsList.length);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    // Collapse the list whenever a category is selected
+    setVisibleCount(INITIAL_SKILLS);
 
   }, [activeCategory]);
 
-  const handleShowMore = () => {
+  // Toggle between showing all skills and showing only the first 8
+  const handleToggleSkills = () => {
     setVisibleCount(prev =>
-      Math.min(prev + 10, filteredSkills.length)
+      prev >= filteredSkills.length
+        ? INITIAL_SKILLS
+        : filteredSkills.length
     );
   };
 
   const visibleSkills = filteredSkills.slice(0, visibleCount);
-  const remainingCount = filteredSkills.length - visibleCount;
+  const isExpanded = visibleCount >= filteredSkills.length;
 
   return (
     <section id="skills" className="py-24 bg-stone-50/50 relative">
@@ -313,8 +306,8 @@ export default function Skills() {
 
         </motion.div>
 
-        {/* Show More Button */}
-        {visibleCount < filteredSkills.length && (
+        {/* Show All / Show Less Button */}
+        {filteredSkills.length > INITIAL_SKILLS && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -323,20 +316,26 @@ export default function Skills() {
 
             <motion.button
               layout
-              onClick={handleShowMore}
+              onClick={handleToggleSkills}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group flex items-center gap-2 px-6 py-3 bg-white text-stone-600 font-bold rounded-full border border-stone-200 hover:border-emerald-500 hover:text-emerald-600 transition-all shadow-sm hover:shadow-md"
             >
 
-              <span>Show Next 10 Skills</span>
+              <span>
+                {isExpanded ? 'Show Less' : 'Show All Skills'}
+              </span>
 
               <span className="text-xs font-normal text-stone-400">
-                ({remainingCount} more)
+                {isExpanded
+                  ? `(${filteredSkills.length} skills)`
+                  : `(${filteredSkills.length - visibleCount} more)`}
               </span>
 
               <FaChevronDown
-                className="group-hover:translate-y-1 transition-transform"
+                className={`transition-transform duration-300 ${
+                  isExpanded ? 'rotate-180' : 'group-hover:translate-y-1'
+                }`}
                 size={12}
               />
 
