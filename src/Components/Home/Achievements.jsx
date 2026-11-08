@@ -1,38 +1,47 @@
+
 import { m as motion } from 'framer-motion';
-import { FaTrophy, FaMedal, FaCode, FaRocket, FaCertificate } from 'react-icons/fa';
+import { FaTrophy, FaMedal, FaCode, FaRocket, FaCertificate, FaBuilding } from 'react-icons/fa';
 
 const achievements = [
   {
     id: 1,
-    title: "LeetCode",
-    description: "Solved 500+ problems, earned 14+ badges, and ranked in multiple coding contests, demonstrating strong problem-solving ability.",
-    icon: FaCode,
-    color: "text-yellow-500",
-    bg: "bg-yellow-50"
+    title: "TCS – Enterprise Data Analysis",
+    description: "Worked with SQL and Python to extract, process, validate, and manage enterprise datasets covering 10K+ user records. Contributed to data-driven dashboards, operational reporting, and data accuracy for the DNB Bank Norway engagement.",
+    icon: FaBuilding,
+    color: "text-blue-500",
+    bg: "bg-blue-50"
   },
   {
     id: 2,
-    title: "Coding Ninjas",
-    description: "Secured 1st and 2nd positions multiple times on leaderboards among a large learner community.",
-    icon: FaTrophy,
-    color: "text-orange-500",
-    bg: "bg-orange-50"
-  },
-  {
-    id: 3,
-    title: "Unisire Launch",
-    description: "Built and launched Unisire, a production-grade learning platform used by 200+ active users across multiple colleges, collaborating with 500+ industry professionals.",
+    title: "Unisire – Startup Founder",
+    description: "Co-founded and built Unisire, a student-focused learning and career platform serving 1,000+ active users across multiple colleges. Led end-to-end product development, community building, and offline student engagement events while connecting with 500+ industry professionals.",
     icon: FaRocket,
     color: "text-emerald-500",
     bg: "bg-emerald-50"
   },
   {
+    id: 3,
+    title: "LeetCode – Problem Solving",
+    description: "Solved 500+ coding problems, earned 14+ badges, and participated in multiple coding contests, demonstrating strong analytical thinking, logical reasoning, and structured problem-solving skills.",
+    icon: FaCode,
+    color: "text-yellow-500",
+    bg: "bg-yellow-50"
+  },
+  {
     id: 4,
-    title: "Certifications",
-    description: "Completed industry-recognized certifications in MERN Stack, Data Structures & Algorithms, and C++.",
+    title: "Coding Ninjas – Competitive Rankings",
+    description: "Secured 1st and 2nd positions multiple times on Coding Ninjas leaderboards, showcasing consistency, competitive problem-solving ability, and technical proficiency.",
+    icon: FaTrophy,
+    color: "text-orange-500",
+    bg: "bg-orange-50"
+  },
+  {
+    id: 5,
+    title: "Professional Certifications",
+    description: "Completed certifications in MERN Stack Development, Data Structures & Algorithms, and C++. Continuously expanding expertise in SQL, Python, Excel, Power BI, and data analytics.",
     icon: FaCertificate,
-    color: "text-blue-500",
-    bg: "bg-blue-50"
+    color: "text-purple-500",
+    bg: "bg-purple-50"
   }
 ];
 
@@ -74,7 +83,7 @@ export default function Achievements() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-stone-900 mb-4"
            >
-             Key <span className="text-emerald-600">Achievements</span>
+             Impact & <span className="text-emerald-600">Achievements</span>
            </motion.h2>
            <motion.div 
              initial={{ width: 0 }}
