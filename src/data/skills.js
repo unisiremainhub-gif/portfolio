@@ -1,52 +1,81 @@
+
 export const skillCategories = [
   {
-    category: "Languages",
+    category: "SQL & Databases",
+    skills: [
+      "SQL",
+      "PostgreSQL",
+      "Joins",
+      "CTEs",
+      "Subqueries",
+      "Window Functions",
+      "Aggregations",
+      "MySQL",
+      "MongoDB"
+    ]
+  },
+  {
+    category: "Excel",
+    skills: [
+      "Advanced Excel",
+      "Pivot Tables",
+      "VLOOKUP",
+      "XLOOKUP",
+      "Data Cleaning",
+      "Excel Charts"
+    ]
+  },
+  {
+    category: "Python & Data Analysis",
+    skills: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Data Manipulation",
+      "Exploratory Data Analysis",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    category: "Power BI",
+    skills: [
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "Dashboard Development",
+      "KPI Reporting",
+      "Data Visualization"
+    ]
+  },
+  {
+    category: "Data Analytics",
+    skills: [
+      "Data Analysis",
+      "Data Cleaning",
+      "Data Interpretation",
+      "Trend Analysis",
+      "Statistical Analysis",
+      "Reporting",
+      "Business Insights"
+    ]
+  },
+  {
+    category: "Development",
     skills: [
       "JavaScript",
       "TypeScript",
-      "Python",
-      "C++"
-    ],
-  },
-  {
-    category: "Frontend",
-    skills: [
+      "C++",
       "React.js",
       "Redux",
       "HTML",
       "CSS",
       "SASS",
-      "Tailwind CSS"
-    ],
-  },
-  {
-    category: "Backend",
-    skills: [
+      "Tailwind CSS",
       "Node.js",
       "Express.js",
       "Django",
-      "REST APIs",
-      "REST Framework"
-    ],
-  },
-  {
-    category: "Databases",
-    skills: [
-      "MongoDB",
-      "SQL",
-      "SQLite",
-      "Supabase"
-    ],
-  },
-  {
-    category: "CS Fundamentals",
-    skills: [
-      "DSA",
-      "OOPs",
-      "DBMS",
-      "OS",
-      "System Design"
-    ],
+      "REST APIs"
+    ]
   },
   {
     category: "Tools",
@@ -58,16 +87,20 @@ export const skillCategories = [
       "Notion",
       "Google Workspace",
       "n8n"
-    ],
+    ]
   },
   {
-    category: "Soft Skills",
+    category: "Business & Soft Skills",
     skills: [
       "Leadership",
       "Communication",
       "Problem Solving",
       "Teamwork",
-      "Adaptability"
-    ],
-  },
+      "Adaptability",
+      "Event Management",
+      "Analytical Thinking",
+      "Team Coordination",
+      "Business Understanding"
+    ]
+  }
 ];
