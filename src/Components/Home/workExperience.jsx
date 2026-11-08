@@ -39,22 +39,25 @@ const experiences = [
     ],
     tech: ["SQL", "MongoDB", "Python", "JavaScript", "REST APIs", "React"]
   },
-  {
-    id: 3,
-    title: "Bachelor of Technology",
-    subtitle: "Computer Science Engineering",
-    role: "Graduate",
-    period: "Dec 2024",
-    type: "Education",
-    icon: FaGraduationCap,
-    description: "Chandigarh Group of Colleges, Landran",
-    achievements: [
-        "Graduated with an overall CGPA of 8.2",
-        "Active member of the Entrepreneurship & Leadership Cell, participating in student-led initiatives and organizing technical workshops",
-        "Developed a strong foundation in database management, analytical problem-solving, programming, and computer science fundamentals"
-    ],
-    tech: ["SQL", "Python", "DBMS", "Statistics", "DSA"]
-  },
+
+{
+  id: 3,
+  title: "Bachelor of Technology",
+  subtitle: "Computer Science Engineering",
+  role: "Graduate",
+  period: "Dec 2024",
+  type: "Education",
+  icon: FaGraduationCap,
+  description: "Chandigarh Group of Colleges, Landran",
+  achievements: [
+    "Graduated with an overall CGPA of 8.2",
+    "Active member of the Entrepreneurship & Leadership Cell, contributing to student-led initiatives and organizing college events and technical workshops",
+    "Participated in event planning, team coordination, and execution of student engagement activities",
+    "Developed analytical thinking, problem-solving, and decision-making skills through academic projects and extracurricular initiatives"
+  ],
+  tech: ["Event Management", "Leadership", "Team Coordination", "Communication", "Problem Solving", "Analytical Thinking"]
+},
+
 
 ];
 
