@@ -1,23 +1,24 @@
 
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { 
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, 
-  FaGithub, FaDatabase, FaCode, FaServer, FaPython, FaSass, 
-  FaBrain, FaObjectGroup, FaProjectDiagram, FaJira, FaTrello, 
+
+import {
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt,
+  FaGithub, FaDatabase, FaCode, FaServer, FaPython, FaSass,
+  FaBrain, FaObjectGroup, FaProjectDiagram, FaJira, FaTrello,
   FaGoogle, FaUsers, FaComments, FaLightbulb, FaHandshake, FaSyncAlt,
   FaChevronDown, FaChartBar, FaChartLine, FaFileExcel,
   FaCalculator, FaTable, FaFilter, FaSearch, FaGraduationCap
 } from 'react-icons/fa';
 
-import { 
-  SiTailwindcss, SiExpress, SiMongodb, SiTypescript, 
-  SiCplusplus, SiRedux, SiDjango, SiSqlite, SiSupabase, 
+import {
+  SiTailwindcss, SiExpress, SiMongodb, SiTypescript,
+  SiCplusplus, SiRedux, SiDjango, SiSqlite, SiSupabase,
   SiNotion, SiN8N, SiAmazondynamodb, SiPostgresql,
-  SiPandas, SiNumpy, SiJupyter, SiPowerbi
+  SiPandas, SiNumpy, SiJupyter
 } from 'react-icons/si';
 
-import { skillCategories } from '../../data/skills'; 
+import { skillCategories } from '../../data/skills';
 
 // --- Icon Mapping ---
 const skillIconMap = {
@@ -53,7 +54,7 @@ const skillIconMap = {
   'Jupyter Notebook': SiJupyter,
 
   // Power BI & Visualization
-  'Power BI': SiPowerbi,
+  'Power BI': FaChartBar,
   'DAX': FaCalculator,
   'Power Query': FaFilter,
   'Dashboard Development': FaChartBar,
@@ -117,7 +118,8 @@ const skillIconMap = {
   'Business Understanding': FaLightbulb
 };
 
-const SkillCard = ({ skill, index }) => {
+// --- Skill Card ---
+const SkillCard = ({ skill }) => {
   const Icon = skillIconMap[skill] || FaCode;
 
   return (
@@ -130,51 +132,70 @@ const SkillCard = ({ skill, index }) => {
       className="relative group h-full"
     >
       <div className="h-full p-4 bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden z-0 neon-border-card flex flex-col items-center text-center md:items-start md:text-left gap-3 md:flex-row md:gap-4">
+
         <div className="relative z-10">
-           {/* Icon Box */}
-           <div className="w-12 h-12 rounded-lg bg-stone-50 text-stone-600 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-             <Icon />
-           </div>
-        </div>
-        
-        <div className="relative z-10 flex items-center">
-           <h4 className="text-stone-700 font-semibold text-sm group-hover:text-stone-900 transition-colors">
-             {skill}
-           </h4>
+          <div className="w-12 h-12 rounded-lg bg-stone-50 text-stone-600 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+            <Icon />
+          </div>
         </div>
 
-        {/* Hover Background Effect */}
+        <div className="relative z-10 flex items-center">
+          <h4 className="text-stone-700 font-semibold text-sm group-hover:text-stone-900 transition-colors">
+            {skill}
+          </h4>
+        </div>
+
         <div className="absolute inset-0 bg-gradient-to-tr from-stone-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+
         <div className="absolute bottom-0 left-0 h-1 bg-emerald-500 w-0 group-hover:w-full transition-all duration-500 ease-out" />
+
       </div>
     </motion.div>
   );
 };
 
+// --- Main Skills Section ---
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredSkills, setFilteredSkills] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(10); // Default for mobile
+  const [visibleCount, setVisibleCount] = useState(10);
 
-  // Flatten all skills for "All" view with category metadata
+  // Flatten all skills for "All" view
   const allSkills = skillCategories.reduce((acc, cat) => {
-    return [...acc, ...cat.skills.map(s => ({ name: s, category: cat.category }))];
+    return [
+      ...acc,
+      ...cat.skills.map(skill => ({
+        name: skill,
+        category: cat.category
+      }))
+    ];
   }, []);
 
-  const categories = ["All", ...skillCategories.map(c => c.category)];
+  const categories = [
+    "All",
+    ...skillCategories.map(category => category.category)
+  ];
 
   useEffect(() => {
-    // Determine skills list based on category
     let skillsList = [];
+
     if (activeCategory === "All") {
       skillsList = allSkills;
     } else {
-      const categoryData = skillCategories.find(c => c.category === activeCategory);
-      skillsList = categoryData ? categoryData.skills.map(s => ({ name: s, category: activeCategory })) : [];
+      const categoryData = skillCategories.find(
+        category => category.category === activeCategory
+      );
+
+      skillsList = categoryData
+        ? categoryData.skills.map(skill => ({
+            name: skill,
+            category: activeCategory
+          }))
+        : [];
     }
+
     setFilteredSkills(skillsList);
 
-    // Reset visible count based on screen size when category changes
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setVisibleCount(10);
@@ -184,13 +205,19 @@ export default function Skills() {
     };
 
     handleResize();
-    
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+
   }, [activeCategory]);
 
   const handleShowMore = () => {
-    setVisibleCount(prev => Math.min(prev + 10, filteredSkills.length));
+    setVisibleCount(prev =>
+      Math.min(prev + 10, filteredSkills.length)
+    );
   };
 
   const visibleSkills = filteredSkills.slice(0, visibleCount);
@@ -198,72 +225,102 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 bg-stone-50/50 relative">
+
       <div className="container mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-           <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-stone-900 mb-4"
-           >
-             Data Analytics <span className="text-emerald-600">& Technical Skills</span>
-           </motion.h2>
-           <motion.p 
+          >
+            Data Analytics{' '}
+            <span className="text-emerald-600">
+              & Technical Skills
+            </span>
+          </motion.h2>
+
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-stone-600"
-           >
-             Explore my analytical and technical skill set, from SQL-based data analysis and Python programming to Excel reporting, Power BI dashboards, and business intelligence.
-           </motion.p>
+          >
+            Explore my analytical and technical skill set, from SQL-based
+            data analysis and Python programming to Excel reporting,
+            Power BI dashboards, and business intelligence.
+          </motion.p>
+
         </div>
 
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
+
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === cat ? 'text-white' : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'
+                activeCategory === cat
+                  ? 'text-white'
+                  : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'
               }`}
             >
+
               {activeCategory === cat && (
                 <motion.div
                   className="absolute inset-0 bg-stone-900 rounded-full cursor-pointer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  transition={{
+                    type: "spring",
+                    bounce: 0.2,
+                    duration: 0.6
+                  }}
                 />
               )}
-              <span className="relative z-10 cursor-pointer">{cat === 'Full-Stack / Tools' ? 'Tools' : cat}</span>
+
+              <span className="relative z-10 cursor-pointer">
+                {cat === 'Full-Stack / Tools' ? 'Tools' : cat}
+              </span>
+
             </button>
           ))}
+
         </div>
 
         {/* Skills Grid */}
-        <motion.div 
+        <motion.div
           layout
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto"
         >
-          <AnimatePresence mode='popLayout'>
+
+          <AnimatePresence mode="popLayout">
+
             {visibleSkills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill.name} />
+              <SkillCard
+                key={skill.name}
+                skill={skill.name}
+              />
             ))}
+
           </AnimatePresence>
+
         </motion.div>
 
         {/* Show More Button */}
         {visibleCount < filteredSkills.length && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mt-12"
           >
+
             <motion.button
               layout
               onClick={handleShowMore}
@@ -271,10 +328,20 @@ export default function Skills() {
               whileTap={{ scale: 0.95 }}
               className="group flex items-center gap-2 px-6 py-3 bg-white text-stone-600 font-bold rounded-full border border-stone-200 hover:border-emerald-500 hover:text-emerald-600 transition-all shadow-sm hover:shadow-md"
             >
+
               <span>Show Next 10 Skills</span>
-              <span className="text-xs font-normal text-stone-400">({remainingCount} more)</span>
-              <FaChevronDown className="group-hover:translate-y-1 transition-transform" size={12} />
+
+              <span className="text-xs font-normal text-stone-400">
+                ({remainingCount} more)
+              </span>
+
+              <FaChevronDown
+                className="group-hover:translate-y-1 transition-transform"
+                size={12}
+              />
+
             </motion.button>
+
           </motion.div>
         )}
 
