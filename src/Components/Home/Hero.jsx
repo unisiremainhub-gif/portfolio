@@ -285,7 +285,7 @@ export default function Hero() {
                 SQL • Python • Excel • Power BI
               </motion.div>
 
-              {/* Main SEO-Friendly Heading */}
+              {/* Main Heading */}
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <AnimatedText
                   text="Data Analyst"
@@ -340,6 +340,7 @@ export default function Hero() {
                 }}
                 className="flex flex-wrap items-center gap-6"
               >
+                {/* My Work Button */}
                 <a
                   href="#projects"
                   className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-stone-900 px-8 font-medium text-white transition-all duration-300 hover:bg-stone-800 hover:w-40 w-36 neon-border-card"
@@ -368,6 +369,7 @@ export default function Hero() {
                   </div>
                 </a>
 
+                {/* Download CV Button */}
                 <a
                   href="https://drive.google.com/file/d/13NnF3X8bKfI8R013FaBfT-Aznti9nIOc/view?usp=sharing"
                   target="_blank"
